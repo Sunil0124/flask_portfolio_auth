@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Audio Streaming & P2P Communication{% endblock %}
+
+{% block content %}
+<div class="container my-5 animate-fade-in">
+  <div class="card shadow-lg border-start border-success border-4 hover-scale">
+    <div class="card-body">
+      <h2 class="card-title mb-3 text-success">🎧 Audio Streaming & Peer-to-Peer Communication</h2>
+      <p class="text-muted mb-4">Real-time voice collaboration built with WebRTC, React.js, and Socket.IO</p>
+
+      <p class="mb-3">
+        This project showcases a robust, peer-to-peer audio streaming application using <strong>React.js</strong>, <strong>WebRTC</strong>, <strong>Socket.IO</strong>, and a custom <strong>Node.js signaling server</strong> deployed on Heroku.
+        Users can participate in real-time audio sessions with advanced features like device selection, mute controls, and cross-platform support.
+      </p>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">🔁 WebRTC-based media stream control and negotiation</li>
+        <li class="list-group-item">📡 Real-time signaling via Socket.IO and Express server</li>
+        <li class="list-group-item">🎚️ Audio device selection, mute/unmute toggles, error handling</li>
+        <li class="list-group-item">☁️ Scalable signaling server deployed on Heroku</li>
+      </ul>
+
+      <div class="text-center mt-4">
+        <a href="https://github.com/Sunil0124/audio-webrtc-react" target="_blank" class="btn btn-outline-success btn-lg">
+          <i class="bi bi-github me-2"></i>View Project on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

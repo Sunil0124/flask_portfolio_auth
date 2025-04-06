@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Professional Portfolio{% endblock %}
+
+{% block content %}
+<div class="container animate-fade-in">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold">Welcome, {{ user.username }}!</h1>
+    <p class="lead text-muted">Your registered email: <strong>{{ user.email }}</strong></p>
+    <hr class="my-4">
+    <h2 class="text-primary"><i class="bi bi-briefcase-fill me-2"></i>Professional Experience</h2>
+  </div>
+
+  <!-- Experience Cards -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% set experiences = [
+      {
+        'title': 'Software Engineer Intern',
+        'company': 'Chaya Development LLC, New York',
+        'period': 'Jan 2025 – Present',
+        'color': 'primary',
+        'details': [
+          'Built a flashcard-based app using React Native, Node.js, Firebase',
+          'Integrated OpenAI for AI-driven quizzes',
+          'Used Redux Toolkit and JWT-based authentication'
+        ]
+      },
+      {
+        'title': 'Senior Software Engineer',
+        'company': 'Ryan India Tax, Hyderabad',
+        'period': 'Dec 2020 – Sep 2023',
+        'color': 'success',
+        'details': [
+          'Maintained tax apps using Spring Boot & React.js',
+          'Built microservices, implemented OAuth 2.0 and JWT',
+          'CI/CD with GitHub Actions & Jenkins'
+        ]
+      },
+      {
+        'title': 'Junior Software Engineer',
+        'company': 'Clic Service Pvt Ltd, Hyderabad',
+        'period': 'Sep 2018 – May 2020',
+        'color': 'warning',
+        'details': [
+          'Built SPAs with React + TypeScript',
+          'Backend APIs in Flask and Node.js',
+          'QA automation with Selenium & TestNG'
+        ]
+      },
+      {
+        'title': 'Junior Developer',
+        'company': 'Strateology IT Solutions, Hyderabad',
+        'period': 'Oct 2017 – Jun 2018',
+        'color': 'info',
+        'details': [
+          'Developed exam portals using PHP, JS, MySQL',
+          'Handled forms, APIs, and feedback systems',
+          'Performed QA and documentation in Agile teams'
+        ]
+      }
+    ] %}
+
+    {% for exp in experiences %}
+    <div class="col">
+      <div class="card h-100 shadow-sm border-start border-4 border-{{ exp.color }} hover-scale">
+        <div class="card-body">
+          <h5 class="card-title">{{ exp.title }}</h5>
+          <h6 class="card-subtitle text-muted">
+            {{ exp.company }}
+            <span class="float-end">{{ exp.period }}</span>
+          </h6>
+          <ul class="mt-2">
+            {% for item in exp.details %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Projects -->
+  <div class="text-center mt-5">
+    <h4><i class="bi bi-code-slash me-2"></i>Projects</h4>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+      <a href="{{ url_for('main.project1') }}" class="btn btn-outline-primary">Tutorrx</a>
+      <a href="{{ url_for('main.project2') }}" class="btn btn-outline-success">Audio Streaming App</a>
+      <a href="{{ url_for('main.project3') }}" class="btn btn-outline-warning">Food Hall Cafe</a>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <hr class="my-5">
+  <h4 class="text-center mb-4 animate-fade-in"><i class="bi bi-mortarboard-fill me-2"></i>Education</h4>
+  <div class="row row-cols-1 row-cols-md-2 g-4 animate-fade-in">
+    <div class="col">
+      <div class="card h-100 border-start border-primary border-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Master of Science in Computer Science</h5>
+          <h6 class="text-muted">Long Island University, Brooklyn, USA <span class="float-end">Sep 2023 – May 2025</span></h6>
+          <p class="mt-2">GPA: <strong>3.8 / 4.0</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 border-start border-success border-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Bachelor of Technology in Computer Science</h5>
+          <h6 class="text-muted">JNTU, Hyderabad <span class="float-end">Jun 2013 – May 2017</span></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -2,5 +2,6 @@ venv/
 __pycache__/
 *.pyc
 .env
-instance/
 site.db
+instance/
+*.sqlite3

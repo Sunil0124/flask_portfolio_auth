@@ -1,25 +1,29 @@
-<div class="card shadow-lg border-start border-warning border-4 hover-scale">
-  <div class="card-body">
-    <h2 class="card-title mb-3 text-warning">🍽️ Food Hall Cafe Management System</h2>
-    <p class="text-muted mb-4">Interactive menu and order tracking platform powered by ReactJS and MySQL</p>
+{% extends "base.html" %}
+{% block title %}Food Hall Café{% endblock %}
 
-    <p class="mb-3">
-      A complete web-based cafe management application designed to streamline food ordering and menu administration. Built with <strong>ReactJS</strong> and <strong>MySQL</strong>, this platform supports real-time order tracking, dynamic menu updates, and a responsive admin dashboard.
+{% block content %}
+<div class="container mt-5">
+  <div class="card border-success shadow-lg p-4">
+    <h3 class="text-success mb-3">
+      🍽️ Food Hall Café – Responsive Café Website
+    </h3>
+    <p>
+      Food Hall Café is a modern, responsive café website built using <strong>React.js (CRA)</strong>. This single-page application provides visitors with an elegant and informative overview of a café's offerings and experience.
     </p>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">📋 Dynamic menu configuration interface</li>
-      <li class="list-group-item">🔄 Real-time order tracking and status updates</li>
-      <li class="list-group-item">👨‍💼 Admin dashboard with CRUD functionality</li>
-      <li class="list-group-item">⚙️ Backend integrated with MySQL for persistence</li>
+    <ul class="list-group list-group-flush my-3">
+      <li class="list-group-item">🏠 <strong>Home Section</strong> – Engaging banner and welcoming intro.</li>
+      <li class="list-group-item">🍽️ <strong>Menu Section</strong> – Categorized menu with pricing (e.g., Americano $5.50).</li>
+      <li class="list-group-item">🧑‍🍳 <strong>Catering Section</strong> – Event catering details with photos.</li>
+      <li class="list-group-item">☕ <strong>About Us</strong> – Storytelling to enhance brand identity.</li>
+      <li class="list-group-item">📞 <strong>Contact Us</strong> – Direct communication via contact section.</li>
     </ul>
 
-    <div class="text-center mt-4">
-      <a href="https://github.com/Sunil0124/food-hall-cafe" target="_blank" class="btn btn-outline-warning btn-lg">
-        <i class="bi bi-github me-2"></i>View Project on GitHub
+    <div class="d-flex justify-content-start mt-4">
+      <a href="https://github.com/Sunil0124/food-hall-cafe" target="_blank" class="btn btn-outline-success me-3">
+        <i class="bi bi-github"></i> View Project on GitHub
       </a>
     </div>
   </div>
-</div>
 </div>
 {% endblock %}

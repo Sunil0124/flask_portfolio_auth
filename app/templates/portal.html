@@ -111,5 +111,26 @@
       </div>
     </div>
   </div>
+
+  <!-- Quote Section from Flask API -->
+  <hr class="my-5">
+  <div class="text-center">
+    <h4><i class="bi bi-lightbulb me-2"></i>Motivational Quote</h4>
+    <p id="quote" class="lead text-muted">Fetching quote...</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('/api/quote')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('quote').textContent = data.quote;
+        })
+        .catch(error => {
+          document.getElementById('quote').textContent = 'Could not load quote.';
+          console.error('Error fetching quote:', error);
+        });
+    });
+  </script>
 </div>
 {% endblock %}

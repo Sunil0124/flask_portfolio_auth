@@ -16,13 +16,30 @@ def load_user(user_id):
 def signup():
     form = SignupForm()
     if form.validate_on_submit():
+        # Check for existing email or username
+        existing_email = User.query.filter_by(email=form.email.data).first()
+        existing_username = User.query.filter_by(username=form.username.data).first()
+
+        if existing_email:
+            flash('Email already registered. Please use another or login.', 'danger')
+            return redirect(url_for('auth.signup'))
+        if existing_username:
+            flash('Username already taken. Choose a different one.', 'danger')
+            return redirect(url_for('auth.signup'))
+
         hashed_password = generate_password_hash(form.password.data)
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=hashed_password
+        )
         db.session.add(user)
         db.session.commit()
-        flash('Account created successfully!', 'success')
+        flash('Account created successfully! You can now log in.', 'success')
         return redirect(url_for('auth.login'))
+
     return render_template('signup.html', form=form)
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
